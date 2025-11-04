@@ -9,11 +9,31 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        List {
-            ForEach(SUPERHEROES){ superHero in
-                SuperheroesRow(superHero: superHero)
+        NavigationStack {
+            List {
+                ForEach(SUPERHEROES){ superHero in
+                    NavigationLink(value: superHero) {
+                        SuperheroesRow(superHero: superHero)
+                    }
+                }
+                .onDelete { indexSet in
+                    SUPERHEROES.remove(atOffsets: indexSet)
+                }
+                .onMove { indexSet, row in
+                    SUPERHEROES.move(fromOffsets: indexSet, toOffset: row)
+                }
             }
+            .toolbar {
+                ToolbarItem {
+                    EditButton()
+                }
+            }
+            .navigationDestination(for: SuperHero.self) { superHero in
+                SuperheroDetail(superHero: superHero)
+            }
+            .navigationTitle("Superheroes")
         }
+     
     }
 }
 
