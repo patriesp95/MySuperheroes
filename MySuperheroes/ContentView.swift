@@ -9,12 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            List(SUPERHEROES, id: \.self) { superHero in
-                Text(superHero.apodo)
+        List {
+            ForEach(SUPERHEROES){ superHero in
+                SuperheroesRow(superHero: superHero)
             }
         }
-        .padding()
     }
 }
 
