@@ -22,6 +22,15 @@ struct SuperHero: Identifiable, Hashable{
     }
 }
 
+let superHeroTest = SuperHero(
+    nombreReal: "Laura Blanco",
+    apodo: "Ala de Águila",
+    descripcion: "Laura siempre soñó con volar. Un encuentro con un águila mística le otorgó el don del vuelo.",
+    edad: 28,
+    poderes: [.vuelo],
+    imagen: "alaDeAguila"
+)
+
 let SUPERHEROES: [SuperHero] = [
     SuperHero(
         nombreReal: "Juan Martínez",
