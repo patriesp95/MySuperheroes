@@ -3,7 +3,7 @@
 
 import Foundation
 
-struct SuperHero: Identifiable, Hashable{
+struct SuperHero: Identifiable, Hashable {
     let id = UUID()
     let nombreReal: String
     let apodo: String
@@ -31,7 +31,7 @@ let superHeroTest = SuperHero(
     imagen: "alaDeAguila"
 )
 
-let SUPERHEROES: [SuperHero] = [
+var SUPERHEROES: [SuperHero] = [
     SuperHero(
         nombreReal: "Juan Martínez",
         apodo: "TeleMente",
